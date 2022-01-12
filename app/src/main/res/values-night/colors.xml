@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_divider_on_background">#232a4a</color>
+
+
+    <color name="background_button_order">@color/indigo_300</color>
+    <color name="color_text_button_order">@color/blue_50</color>
+
+    // bookmark icon
+    <color name="color_bookmark_outline">@color/blue_50</color>
+    <color name="color_bookmark_filled">@color/blue_50</color>
+</resources>

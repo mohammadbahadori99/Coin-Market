@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Bottom Sheets-->
+    <style name="ThemeOverlay.MyTheme.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--        <item name="android:windowAnimationStyle">@style/Animation.MyTheme.BottomSheet.Modal</item>-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/Widget.MyTheme.BottomSheet.Modal</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <!--        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@android:color/transparent</item>-->
+    </style>
+
+    <style name="Widget.MyTheme.BottomSheet.Modal" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">?attr/shapeAppearanceLargeComponent</item>
+    </style>
+
+    <!--Navigation Drawer-->
+    <style name="Widget.MyTheme.NavigationView" parent="Widget.MaterialComponents.NavigationView">
+        <item name="itemTextAppearance">?attr/textAppearanceBody2</item>
+    </style>
+
+    <!--Shape Appearance overlay for TextInputLayout.OutlinedBox -->
+    <style name="Widget.MyTheme.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearance">
+            @style/ShapeAppearanceOverlay.MyTheme.TextInputLayout.OutlinedBox
+        </item>
+    </style>
+
+    <!--Bottom Navigation View Day-->
+    <style name="Widget.MyTheme.BottomNavigationView.Day" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@drawable/bottom_nav_tint_selector_day</item>
+        <item name="itemTextColor">@drawable/bottom_nav_tint_selector_day</item>
+    </style>
+
+    <!--Bottom Navigation View Night-->
+    <style name="Widget.MyTheme.BottomNavigationView.Night" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@drawable/bottom_nav_tint_selector_night</item>
+        <item name="itemTextColor">@drawable/bottom_nav_tint_selector_night</item>
+    </style>
+
+    <!--Actionbar Style-->
+    <style name="MyTheme.ActionbarStyle" parent="@style/Widget.MaterialComponents.Toolbar.Primary">
+        <!--        <item name="android:background">@color/blue_500</item>-->
+    </style>
+
+    <!--Drawer Arrow Toggle-->
+    <style name="MyTheme.DrawerArrowToggle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <!--        <item name="color">@color/white_50</item>-->
+    </style>
+
+    <!--TabLayoutStyle-->
+    <style name="Widget.MyTheme.TabLayoutStyle" parent="@style/Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@null</item>
+        <item name="tabTextAppearance">@style/TextAppearance.MyTheme.Subtitle1</item>
+        <item name="tabIndicatorAnimationMode">elastic</item>
+    </style>
+
+
+    <!--TextInputLayout.FilledBox.ExposedDropdownMenu    -->
+    <style name="Widget.MyTheme.TextInputLayout.Filled.ButtonOrder" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyTheme.ButtonOrder</item>
+
+        <item name="boxBackgroundColor">@color/background_button_order</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="endIconTint">@color/color_text_button_order</item>
+    </style>
+
+    <!--TabLayoutStyle-->
+    <style name="Widget.MyTheme.MaterialButton" parent="@style/Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/blue_50</item>
+        <item name="android:textColor">#686868</item>
+        <item name="shapeAppearance">@style/ShapeAppearanceOverlay.MyTheme.TextInputLayout.OutlinedBox</item>
+    </style>
+
+</resources>

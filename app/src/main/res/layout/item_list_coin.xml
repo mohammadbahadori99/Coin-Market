@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="coin"
+            type="com.mohammad.bahadori.domain.models.CoinDomainModel" />
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:padding="4dp"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/list_item_background"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/guideline_start_margin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/guideline_end_margin" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_crypto_short_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:layout_marginStart="@dimen/spacing_4x"
+                android:text="@{coin.symbol}"
+                android:textStyle="italic"
+                android:textAppearance="?attr/textAppearanceBody2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_crypto_name"
+                tools:text="BTC" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_crypto_market_cap_title"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_4x"
+                android:visibility="gone"
+                android:text="@string/label_cp"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_crypto_short_name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_crypto_market_cap"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_2x"
+                android:text="@{String.valueOf(coin.circulatingSupply)}"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintStart_toEndOf="@id/tv_crypto_market_cap_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_crypto_short_name"
+                tools:text="circulatingSupply" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_market_cap_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:layout_marginBottom="@dimen/spacing_2x"
+                android:layout_marginStart="@dimen/spacing_4x"
+                android:text="@string/label_market_cap"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_crypto_market_cap_title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_market_cap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_2x"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:layout_marginStart="@dimen/spacing_2x"
+                android:text="@{coin.marketCap}"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_market_cap_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_crypto_market_cap_title"
+                tools:text="marketCap" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_crypto_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_4x"
+                android:layout_marginEnd="@dimen/spacing_6x"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:lines="1"
+                android:text="@{coin.name}"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintEnd_toStartOf="@id/tv_price_change_value"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Bitcoin" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_price_change_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0"
+                android:textAppearance="?attr/textAppearanceBody2"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_crypto_short_name"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/tv_price_change_value"
+                app:percentTextColor="@{coin.percentChange}"
+                app:textTwoDecimalNumWithPercentSign="@{coin.percentChange}"
+                tools:text="-56.3%"
+                tools:textColor="@color/color_decrease_percent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_price_change_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minEms="5"
+                app:TextTwoDecimalNumWithDollarSign="@{coin.price}"
+                android:textAppearance="@style/TextAppearance.MyTheme.Body2"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_crypto_name"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                tools:text="$ 2,509.75" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

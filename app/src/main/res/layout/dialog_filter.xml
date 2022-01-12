@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:paddingStart="@dimen/spacing_2x"
+    android:paddingBottom="@dimen/spacing_2x"
+    android:paddingEnd="@dimen/spacing_2x"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/tv_header_dialogFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_percentChangeTitle_dialogFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MyTheme.Body2"
+        android:text="@string/label_by_percent_change_24h"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_header_dialogFilter" />
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_margin="@dimen/spacing_2x"
+        android:layout_height="wrap_content"
+        android:hint="@string/label_min"
+        android:id="@+id/et_percentMin_dialogFilter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/et_percentMax_dialogFilter"
+        app:layout_constraintTop_toBottomOf="@+id/tv_percentChangeTitle_dialogFilter">
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/et_percentMax_dialogFilter"
+        android:layout_width="0dp"
+        android:layout_margin="@dimen/spacing_2x"
+        android:layout_height="wrap_content"
+        android:hint="@string/label_max"
+        app:layout_constraintStart_toEndOf="@+id/et_percentMin_dialogFilter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_percentChangeTitle_dialogFilter">
+    </EditText>
+
+
+
+    <TextView
+        android:id="@+id/tv_volumeChangeTitle_dialogFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_2x"
+        android:text="@string/label_by_volume_change_24h"
+        android:textAppearance="@style/TextAppearance.MyTheme.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_percentMax_dialogFilter" />
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_margin="@dimen/spacing_2x"
+        android:layout_height="wrap_content"
+        android:hint="@string/label_min"
+        android:id="@+id/et_volumeMin_dialogFilter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/et_volumeMax_dialogFilter"
+        app:layout_constraintTop_toBottomOf="@+id/tv_volumeChangeTitle_dialogFilter">
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/et_volumeMax_dialogFilter"
+        android:layout_width="0dp"
+        android:layout_margin="@dimen/spacing_2x"
+        android:layout_height="wrap_content"
+        android:hint="@string/label_max"
+        app:layout_constraintStart_toEndOf="@+id/et_volumeMin_dialogFilter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_volumeChangeTitle_dialogFilter">
+    </EditText>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:text="@string/label_apply"
+        android:id="@+id/btn_apply_dialogFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/spacing_4x"
+        app:layout_constraintTop_toBottomOf="@+id/et_volumeMax_dialogFilter"
+        android:layout_height="wrap_content" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

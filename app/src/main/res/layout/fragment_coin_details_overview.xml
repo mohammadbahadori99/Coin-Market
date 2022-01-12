@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="coin"
+            type="com.mohammad.bahadori.data.local.model.CoinEntity" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="true"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/guideline_start_margin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/guideline_end_margin" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_valueStatistics_fragmentCoinDetailsOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_3x"
+                android:text="@{@string/generic_symbol_value_statistic(coin.symbol)}"
+                android:textAppearance="@style/TextAppearance.MyTheme.Subtitle1.Bold"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="BTC value statistics" />
+
+            <ImageView
+                android:id="@+id/iv_priceToCurrency_fragmentCoinDetailsOverview"
+                android:layout_width="@dimen/ic_statistic_width_height_small"
+                android:layout_height="@dimen/ic_statistic_width_height_small"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_price_to_a_currency"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/tv_valueStatistics_fragmentCoinDetailsOverview" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_label_price_to_currency_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_half_base"
+                android:gravity="center"
+                android:text="@string/text_price_to_usd"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_priceToCurrency_fragmentCoinDetailsOverview"
+                app:layout_constraintStart_toEndOf="@id/iv_priceToCurrency_fragmentCoinDetailsOverview"
+                app:layout_constraintTop_toTopOf="@id/iv_priceToCurrency_fragmentCoinDetailsOverview"
+                tools:text="Price to USD" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_price_to_currency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
+                app:TextTwoDecimalNumWithDollarSign="@{String.valueOf(coin.price)}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_label_price_to_currency_"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintTop_toTopOf="@+id/tv_label_price_to_currency_"
+                tools:text=" $ 34,412.66" />
+
+
+            <View
+                android:id="@+id/v_below_price_to_currency"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/divider_margin_top"
+                android:background="@color/color_divider_on_background"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/iv_priceToCurrency_fragmentCoinDetailsOverview" />
+
+            <ImageView
+                android:id="@+id/iv_price_to_crypto"
+                android:layout_width="@dimen/ic_statistic_width_height_small"
+                android:layout_height="@dimen/ic_statistic_width_height_small"
+                android:layout_marginTop="@dimen/top_space_from_divider"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_price_to_a_coin"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/v_below_price_to_currency" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_label_price_to_crypto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_half_base"
+                android:gravity="center"
+                android:text="@string/text_price_to_btc"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_price_to_crypto"
+                app:layout_constraintStart_toEndOf="@id/iv_price_to_crypto"
+                app:layout_constraintTop_toTopOf="@id/iv_price_to_crypto" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_price_to_crypto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_label_price_to_crypto"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintTop_toTopOf="@+id/tv_label_price_to_crypto"
+                tools:text="1.00 BTC" />
+
+            <View
+                android:id="@+id/v_below_price_to_crypto"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/divider_margin_top"
+                android:background="@color/color_divider_on_background"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/iv_price_to_crypto" />
+
+            <ImageView
+                android:id="@+id/iv_rank"
+                android:layout_width="@dimen/ic_statistic_width_height_small"
+                android:layout_height="@dimen/ic_statistic_width_height_small"
+                android:layout_marginTop="@dimen/top_space_from_divider"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_rank"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/v_below_price_to_crypto" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_label_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_half_base"
+                android:gravity="center"
+                android:text="@string/text_rank"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_rank"
+                app:layout_constraintStart_toEndOf="@id/iv_rank"
+                app:layout_constraintTop_toTopOf="@id/iv_rank" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="Rank rankd"
+                android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_label_rank"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintTop_toTopOf="@+id/tv_label_rank"
+                tools:text="1" />
+
+            <View
+                android:id="@+id/v_below_rank"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/divider_margin_top"
+                android:background="@color/color_divider_on_background"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/iv_rank" />
+
+            <ImageView
+                android:id="@+id/iv_24h_volume"
+                android:layout_width="@dimen/ic_statistic_width_height_small"
+                android:layout_height="@dimen/ic_statistic_width_height_small"
+                android:layout_marginTop="@dimen/top_space_from_divider"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_rank"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/v_below_rank" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_label_24h_volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_half_base"
+                android:gravity="center"
+                android:text="@string/text_24h_volume"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_24h_volume"
+                app:layout_constraintStart_toEndOf="@id/iv_24h_volume"
+                app:layout_constraintTop_toTopOf="@id/iv_24h_volume" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_24h_volume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_label_24h_volume"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintTop_toTopOf="@+id/tv_label_24h_volume"
+                app:textNumInMillionOrBillion="@{coin.percentChange}"
+                tools:text="$ 18.05 billion" />
+
+            <View
+                android:id="@+id/v_below_24_volume"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/divider_margin_top"
+                android:background="@color/color_divider_on_background"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/iv_24h_volume" />
+
+
+            <ImageView
+                android:id="@+id/iv_market_cap"
+                android:layout_width="@dimen/ic_statistic_width_height_small"
+                android:layout_height="@dimen/ic_statistic_width_height_small"
+                android:layout_marginTop="@dimen/top_space_from_divider"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_market_cap"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/v_below_24_volume" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_label_market_cap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_half_base"
+                android:gravity="center"
+                android:text="@string/text_market_cap"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_market_cap"
+                app:layout_constraintStart_toEndOf="@id/iv_market_cap"
+
+                app:layout_constraintTop_toTopOf="@id/iv_market_cap" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_market_cap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_label_market_cap"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintTop_toTopOf="@+id/tv_label_market_cap"
+                app:textNumInMillionOrBillion="@{coin.marketCap}"
+                tools:text="$ 645.66 billion " />
+
+            <View
+                android:id="@+id/v_below_market_cap"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/divider_margin_top"
+                android:background="@color/color_divider_on_background"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/iv_market_cap" />
+
+            <ImageView
+                android:id="@+id/iv_all_time_high"
+                android:layout_width="@dimen/ic_statistic_width_height_small"
+                android:layout_height="@dimen/ic_statistic_width_height_small"
+                android:layout_marginTop="@dimen/top_space_from_divider"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_all_time_high"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/v_below_market_cap" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_label_all_time_high"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_half_base"
+                android:gravity="center"
+                android:text="@string/text_all_time_high_daily_avg"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintBottom_toBottomOf="@id/iv_all_time_high"
+                app:layout_constraintStart_toEndOf="@id/iv_all_time_high"
+                app:layout_constraintTop_toTopOf="@id/iv_all_time_high" />
+
+
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_what_is_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_2x"
+                tools:visibility="visible"
+                android:visibility="gone"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_all_time_high"
+                tools:text="Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system." />
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_10x"
+                app:layout_constraintTop_toBottomOf="@id/tv_what_is_description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+</layout>
+

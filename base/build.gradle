@@ -1,0 +1,9 @@
+import dependencies.Libs
+
+plugins {
+    id 'kotlin'
+}
+dependencies {
+    api Libs.Kotlin.Coroutine.core
+    api Libs.Kotlin.jdk
+}

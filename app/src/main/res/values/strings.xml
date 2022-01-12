@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">CoinMarketCap</string>
+    <string name="app_name_splash">CoinMarketCap</string>
+    <string name="text_coin_ranking">Coinranking</string>
+    <string name="text_search">Search</string>
+    <string name="text_cryptocurrencies">Cryptocurrencies</string>
+    <string name="text_cryptocurrency">Cryptocurrency</string>
+    <string name="text_exchanges">Exchanges</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="text_bookmarks">Bookmarks</string>
+    <string name="text_home">Home</string>
+    <string name="text_value_statistics">value statistics</string>
+    <string name="text_price">Price</string>
+    <string name="text_market_cap">Market cap</string>
+    <string name="text_overview">Overview</string>
+    <string name="text_exchange_detail">Exchange details</string>
+    <string name="text_crypto_details">Crypto details</string>
+    <string name="generic_percent">%s %%</string>
+    <string name="generic_dollar_sign">&lt;b>Price:&lt;/b> $ %s</string>
+    <string name="generic_symbol_value_statistic">%s value statistics</string>
+    <string name="generic_what_is_that_coin">What is %s</string>
+    <string name="generic_bitcoin_label">%s BTC</string>
+    <string name="generic_dollar_sign_with_million_label">$ %s million</string>
+    <string name="generic_dollar_sign_with_billion_label">$ %s billion</string>
+
+
+    <string name="generic_statistics_description">Statistics showing an overview of %s exchange, such as its 24h trading volume, market share and cryptocurrency listings.</string>
+    <string name="generic_statistics_market_share">%s%%</string>
+    <string name="generic_about_exchange">%s is a blockchain ecosystem comprising a cryptocurrency exchange, startup incubator, startup investor, and coin information provider. Binance is a highly popular exchange and allows its users to trade hundreds of cryptocurrencies, including Dogecoin, Bitcoin, and Ethereum. \n\nThe exchange was founded in July 2017, by Changpeng Zhao (CZ), and was initially based in China, but was later moved out of China due to China\'s increasing regulation of cryptocurrency. The name ‘Binance’ comes from the two words ‘binary’ and ‘finance’. Binance exchange requires KYC (know-your-customer), which is the process that banks gather identifying data and contact information from current and potential customers, to prevent fraud. Binance is capable of processing 1,400,000 orders per second and supports many cryptocurrencies. Binance serves more than 15,000,000 users worldwide, operates in over 40 countries, and is based in over 180 countries regions.</string>
+    <string name="generic_about_exchange_title">About %s exchange</string>
+    <string name="text_exchange_statistics">Binance statistics</string>
+    <string name="text_about_exchange_title">About Binance exchange</string>
+    <string name="text_24h_volume">24h volume</string>
+    <string name="text_rank">Rank</string>
+    <string name="text_cryptocurrencies_listed">Cryptocurrencies listed</string>
+    <string name="text_market">Market</string>
+    <string name="text_market_share">Market Share</string>
+    <string name="text_price_to_usd">Price to USD</string>
+    <string name="text_price_to_btc">Price to BTC</string>
+    <string name="text_all_time_high_daily_avg">All-time high (daily avg.)</string>
+    <string name="label_cp">Circulating Supply:</string>
+    <string name="label_market_cap">Market Cap:</string>
+    <string name="label_by_percent_change_24h">By percent change 24H</string>
+    <string name="label_min">Min</string>
+    <string name="label_max">Max</string>
+    <string name="label_by_volume_change_24h">By volume change 24H</string>
+    <string name="label_apply">Apply</string>
+    <string-array name="sort_type">
+        <item>Default</item>
+        <item>Market Cap Asc</item>
+        <item>Market Cap Desc</item>
+        <item>Name Asc</item>
+        <item>Name Desc</item>
+        <item>Price Asc</item>
+        <item>Price Desc</item>
+        <item>Circulating Supply Asc</item>
+        <item>Circulating Supply Desc</item>
+    </string-array>
+</resources>
