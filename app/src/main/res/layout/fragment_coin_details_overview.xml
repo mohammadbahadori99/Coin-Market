@@ -6,15 +6,14 @@
     <data>
 
         <variable
-            name="coin"
-            type="com.mohammad.bahadori.data.local.model.CoinEntity" />
+            name="vm"
+            type="com.mohammad.bahadori.features.coinDetails.CoinDetailsOverviewViewModel" />
     </data>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:nestedScrollingEnabled="true"
-        >
+        android:nestedScrollingEnabled="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -40,11 +39,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_3x"
-                android:text="@{@string/generic_symbol_value_statistic(coin.symbol)}"
+                android:text="@{vm.coin.coinEntity.name}"
                 android:textAppearance="@style/TextAppearance.MyTheme.Subtitle1.Bold"
-                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintStart_toEndOf="@id/iv_coinLogo_fragmentCoinDetailsOverview"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="BTC value statistics" />
+
+            <ImageView
+                android:layout_width="48dp"
+
+                android:id="@+id/iv_coinLogo_fragmentCoinDetailsOverview"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                android:layout_height="48dp" />
 
             <ImageView
                 android:id="@+id/iv_priceToCurrency_fragmentCoinDetailsOverview"
@@ -54,7 +61,7 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_price_to_a_currency"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
-                app:layout_constraintTop_toBottomOf="@+id/tv_valueStatistics_fragmentCoinDetailsOverview" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_coinLogo_fragmentCoinDetailsOverview" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_label_price_to_currency_"
@@ -74,12 +81,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="end"
+                android:text="Loading"
                 android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
-                app:TextTwoDecimalNumWithDollarSign="@{String.valueOf(coin.price)}"
+                app:TextTwoDecimalNumWithDollarSign="@{String.valueOf(vm.coin.coinEntity.price)}"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_label_price_to_currency_"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_end"
                 app:layout_constraintTop_toTopOf="@+id/tv_label_price_to_currency_"
-                tools:text=" $ 34,412.66" />
+                tools:text="Loading" />
 
 
             <View
@@ -93,49 +101,6 @@
                 app:layout_constraintTop_toBottomOf="@id/iv_priceToCurrency_fragmentCoinDetailsOverview" />
 
             <ImageView
-                android:id="@+id/iv_price_to_crypto"
-                android:layout_width="@dimen/ic_statistic_width_height_small"
-                android:layout_height="@dimen/ic_statistic_width_height_small"
-                android:layout_marginTop="@dimen/top_space_from_divider"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_price_to_a_coin"
-                app:layout_constraintStart_toStartOf="@id/guideline_start"
-                app:layout_constraintTop_toBottomOf="@+id/v_below_price_to_currency" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_label_price_to_crypto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_half_base"
-                android:gravity="center"
-                android:text="@string/text_price_to_btc"
-                android:textAppearance="?attr/textAppearanceBody1"
-                app:layout_constraintBottom_toBottomOf="@id/iv_price_to_crypto"
-                app:layout_constraintStart_toEndOf="@id/iv_price_to_crypto"
-                app:layout_constraintTop_toTopOf="@id/iv_price_to_crypto" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_price_to_crypto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_label_price_to_crypto"
-                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
-                app:layout_constraintTop_toTopOf="@+id/tv_label_price_to_crypto"
-                tools:text="1.00 BTC" />
-
-            <View
-                android:id="@+id/v_below_price_to_crypto"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/divider_height"
-                android:layout_marginTop="@dimen/divider_margin_top"
-                android:background="@color/color_divider_on_background"
-                app:layout_constraintEnd_toEndOf="@id/guideline_end"
-                app:layout_constraintStart_toStartOf="@id/guideline_start"
-                app:layout_constraintTop_toBottomOf="@id/iv_price_to_crypto" />
-
-            <ImageView
                 android:id="@+id/iv_rank"
                 android:layout_width="@dimen/ic_statistic_width_height_small"
                 android:layout_height="@dimen/ic_statistic_width_height_small"
@@ -143,7 +108,7 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_rank"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
-                app:layout_constraintTop_toBottomOf="@+id/v_below_price_to_crypto" />
+                app:layout_constraintTop_toBottomOf="@+id/v_below_price_to_currency" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_label_rank"
@@ -151,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_half_base"
                 android:gravity="center"
-                android:text="@string/text_rank"
+                android:text="@string/label_symbol"
                 android:textAppearance="?attr/textAppearanceBody1"
                 app:layout_constraintBottom_toBottomOf="@id/iv_rank"
                 app:layout_constraintStart_toEndOf="@id/iv_rank"
@@ -163,12 +128,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:text="Rank rankd"
+                android:text="@{vm.coin.coinEntity.symbol}"
                 android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_label_rank"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_end"
                 app:layout_constraintTop_toTopOf="@+id/tv_label_rank"
-                tools:text="1" />
+                tools:text="Loading" />
 
             <View
                 android:id="@+id/v_below_rank"
@@ -207,12 +172,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="end"
+                android:text="Loading"
                 android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_label_24h_volume"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_end"
                 app:layout_constraintTop_toTopOf="@+id/tv_label_24h_volume"
-                app:textNumInMillionOrBillion="@{coin.percentChange}"
-                tools:text="$ 18.05 billion" />
+                app:textNumInMillionOrBillion="@{vm.coin.coinEntity.volumeChange}"
+                />
 
             <View
                 android:id="@+id/v_below_24_volume"
@@ -253,11 +219,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="end"
+                android:text="@{vm.coin.coinEntity.marketCap}"
                 android:textAppearance="@style/TextAppearance.MyTheme.Subtitle2.Bold"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_label_market_cap"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_end"
                 app:layout_constraintTop_toTopOf="@+id/tv_label_market_cap"
-                app:textNumInMillionOrBillion="@{coin.marketCap}"
+                app:textNumInMillionOrBillion="@{vm.coin.coinDetailEntity.symbol}"
                 tools:text="$ 645.66 billion " />
 
             <View
@@ -270,43 +237,17 @@
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintTop_toBottomOf="@id/iv_market_cap" />
 
-            <ImageView
-                android:id="@+id/iv_all_time_high"
-                android:layout_width="@dimen/ic_statistic_width_height_small"
-                android:layout_height="@dimen/ic_statistic_width_height_small"
-                android:layout_marginTop="@dimen/top_space_from_divider"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_all_time_high"
-                app:layout_constraintStart_toStartOf="@id/guideline_start"
-                app:layout_constraintTop_toBottomOf="@+id/v_below_market_cap" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_label_all_time_high"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_half_base"
-                android:gravity="center"
-                android:text="@string/text_all_time_high_daily_avg"
-                android:textAppearance="?attr/textAppearanceBody1"
-                app:layout_constraintBottom_toBottomOf="@id/iv_all_time_high"
-                app:layout_constraintStart_toEndOf="@id/iv_all_time_high"
-                app:layout_constraintTop_toTopOf="@id/iv_all_time_high" />
-
-
-
-
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_what_is_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_2x"
-                tools:visibility="visible"
-                android:visibility="gone"
+                android:text="@{vm.coin.coinDetailEntity.des}"
                 android:textAppearance="?attr/textAppearanceBody1"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_all_time_high"
+                app:layout_constraintTop_toBottomOf="@id/v_below_market_cap"
                 tools:text="Bitcoin is the first digital currency that allows users to send and receive money, without the interference of a central bank or government. Instead, a network of thousands of peers is controlling the transactions; a decentralized system." />
 
 

@@ -16,7 +16,7 @@
     <string name="text_exchange_detail">Exchange details</string>
     <string name="text_crypto_details">Crypto details</string>
     <string name="generic_percent">%s %%</string>
-    <string name="generic_dollar_sign">&lt;b>Price:&lt;/b> $ %s</string>
+    <string name="generic_dollar_sign">$ %s</string>
     <string name="generic_symbol_value_statistic">%s value statistics</string>
     <string name="generic_what_is_that_coin">What is %s</string>
     <string name="generic_bitcoin_label">%s BTC</string>
@@ -45,6 +45,7 @@
     <string name="label_max">Max</string>
     <string name="label_by_volume_change_24h">By volume change 24H</string>
     <string name="label_apply">Apply</string>
+    <string name="label_symbol">Symbol</string>
     <string-array name="sort_type">
         <item>Default</item>
         <item>Market Cap Asc</item>

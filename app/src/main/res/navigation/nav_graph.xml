@@ -10,6 +10,9 @@
         android:name="com.mohammad.bahadori.features.home.HomeFragment"
         android:label="@string/text_coin_ranking"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_coinDetailsOverviewFragment"
+            app:destination="@id/coinDetailsOverviewFragment" />
     </fragment>
 
 
@@ -25,7 +28,16 @@
             app:popUpTo="@id/splashFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/coinDetailsOverviewFragment"
+        android:name="com.mohammad.bahadori.features.coinDetails.CoinDetailsOverviewFragment"
+        android:label="CoinDetailsOverviewFragment" >
+        <argument
+            android:name="coinId"
+            app:argType="integer">
 
+        </argument>
+    </fragment>
 
 
 </navigation>

@@ -10,7 +10,7 @@ fun <T> Response<T>.bodyOrThrow(): T {
 }
 suspend inline fun <R, V> syncAndReadFromDB(
     crossinline createCall: suspend () -> R,
-    crossinline loadFromDb: suspend () -> V,
+    crossinline loadFromDb: suspend () -> V?,
     crossinline shouldFetch: suspend (V?) -> Boolean,
     crossinline saveCallResult: suspend (R) -> Unit
 ): V {
@@ -18,7 +18,7 @@ suspend inline fun <R, V> syncAndReadFromDB(
     return if (cache == null || shouldFetch(cache)) {
         val result = createCall()
         saveCallResult(result)
-        loadFromDb()
+        loadFromDb()!!
     } else {
         cache
     }

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
 import com.mohammad.bahadori.R
@@ -21,6 +22,7 @@ import com.mohammad.bahadori.domain.enums.SortType
 import com.mohammad.bahadori.features.base.BaseFragment
 import com.mohammad.bahadori.features.home.adapter.CoinAdapter
 import com.mohammad.bahadori.features.home.adapter.CoinsLoadStateAdapter
+import com.mohammad.bahadori.features.home.adapter.OnCoinClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
@@ -29,7 +31,7 @@ import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment(), AdapterView.OnItemSelectedListener {
+class HomeFragment : BaseFragment(), AdapterView.OnItemSelectedListener, OnCoinClickListener {
     private val viewModel: HomeViewModel by viewModels()
     private lateinit var dialog: AlertDialog
     lateinit var adapter: CoinAdapter
@@ -89,7 +91,7 @@ class HomeFragment : BaseFragment(), AdapterView.OnItemSelectedListener {
     @ExperimentalPagingApi
     @OptIn(InternalCoroutinesApi::class)
     private fun initRecyclerView() {
-        adapter = CoinAdapter()
+        adapter = CoinAdapter(this)
         mBinding.rvHomeCrypto.adapter = adapter.withLoadStateFooter(
             footer = CoinsLoadStateAdapter(adapter)
         )
@@ -171,5 +173,9 @@ class HomeFragment : BaseFragment(), AdapterView.OnItemSelectedListener {
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
 
+    }
+
+    override fun onClicked(coinId: Int) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCoinDetailsOverviewFragment(coinId))
     }
 }

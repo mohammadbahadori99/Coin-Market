@@ -5,6 +5,7 @@ import com.mohammad.bahadori.data.local.dao.CoinDao
 import com.mohammad.bahadori.data.local.dao.CoinDetailDao
 import com.mohammad.bahadori.data.local.model.CoinDetailEntity
 import com.mohammad.bahadori.data.local.model.CoinEntity
+import com.mohammad.bahadori.data.local.model.CoinWithAllDetails
 import com.mohammad.bahadori.domain.enums.SortType
 import javax.inject.Inject
 
@@ -15,6 +16,10 @@ class CoinLocalDataSourceImpl @Inject constructor(
 
     override fun getDetailedCoin(id: Int): CoinDetailEntity? {
         return coinDetailDao.getDetailedCoin(id)
+    }
+
+    override fun getCoinRelation(id: Int): CoinWithAllDetails {
+        return coinDetailDao.getCoinWithAllDetail(id)
     }
 
     override fun getAllCoins(coinOrder: CoinOrder, sortType: SortType): List<CoinEntity> {

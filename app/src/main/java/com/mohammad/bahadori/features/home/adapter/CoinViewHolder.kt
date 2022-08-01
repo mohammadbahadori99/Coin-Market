@@ -17,22 +17,20 @@
 package com.mohammad.bahadori.features.home.adapter
 
 import androidx.recyclerview.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import com.mohammad.bahadori.R
-import com.mohammad.bahadori.data.local.model.CoinEntity
 import com.mohammad.bahadori.databinding.ItemListCoinBinding
 import com.mohammad.bahadori.domain.models.CoinDomainModel
 
 /**
  * A RecyclerView ViewHolder that displays a reddit post.
- */ class CoinViewHolder(private val binding: ItemListCoinBinding) :
+ */
+class CoinViewHolder(
+    private val binding: ItemListCoinBinding,
+    private val onItemClickListener: OnCoinClickListener
+) :
     RecyclerView.ViewHolder(binding.root) {
     init {
         binding.root.setOnClickListener {
-            //onItemCoinClickListener(getItem(bindingAdapterPosition))
+            onItemClickListener.onClicked(binding.coin?.id?:-1)
         }
     }
 

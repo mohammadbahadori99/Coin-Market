@@ -3,6 +3,7 @@ package com.mohammad.bahadori.features.home.adapter
 import android.graphics.Color
 import android.text.Html
 import android.text.format.DateFormat
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -52,12 +53,15 @@ fun bindTxtNumInMillionOrBillion(textView: TextView, text: String?) {
 
 @BindingAdapter("app:TextTwoDecimalNumWithDollarSign")
 fun bindTextTwoDecimalNumWithDollarSign(textView: TextView, number: String?) {
-    val num = number?.toFloat()
-
-    num?.let {
-        val formattedTxt =
-            textView.context.resources.getString(R.string.generic_dollar_sign, num.toString())
-        textView.text = Html.fromHtml(formattedTxt)
+    try {
+        val num = number?.toFloat()
+        num?.let {
+            val formattedTxt =
+                textView.context.resources.getString(R.string.generic_dollar_sign, num.toString())
+            textView.text = Html.fromHtml(formattedTxt)
+        }
+    }catch (e:Exception){
+        Log.e("Mohammad", e.toString())
     }
 }
 

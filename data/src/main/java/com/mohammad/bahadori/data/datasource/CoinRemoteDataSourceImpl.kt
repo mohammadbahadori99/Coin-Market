@@ -13,12 +13,14 @@ class CoinRemoteDataSourceImpl @Inject constructor(
 ) : CoinRemoteDataSource {
     override suspend fun fetchDetailedCoin(id: Int): CoinDetailEntity {
         val data= apiService.fetchCoinDetail(id)
-        val coinDetailResponse=data.body()?.getAsJsonObject(id.toString())
-        val boz=CoinDetailResponse(CoinDetailData.getFromJsonObject(coinDetailResponse!!))
+        val coinDetailResponse=data.body()?.getAsJsonObject("data")
+        val coinDetailResponse2=coinDetailResponse?.getAsJsonObject(id.toString())
+        val boz=CoinDetailResponse(CoinDetailData.getFromJsonObject(coinDetailResponse2!!))
         return CoinDetailEntity(boz.coinDetailData.id,
             boz.coinDetailData.name,
             boz.coinDetailData.description,
-            boz.coinDetailData.logo)
+            boz.coinDetailData.logo,
+        boz.coinDetailData.symbol)
     }
 
     override suspend fun fetchAllCoins(): List<CoinData>{
